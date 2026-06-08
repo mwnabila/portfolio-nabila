@@ -1,19 +1,42 @@
-// Button.jsx — Komponen tombol reusable
-// Kenapa dipisah? Karena kita pakai tombol di banyak section.
-// Kalau mau ubah style tombol, cukup ubah di sini saja.
-
 import { motion } from "framer-motion";
 
 const Button = ({ children, variant = "primary", href, onClick, className = "" }) => {
   const baseStyles = "inline-flex items-center gap-2 px-6 py-3 rounded-full font-body font-medium text-sm tracking-wide transition-all duration-300 cursor-pointer";
 
   const variants = {
-    primary: "bg-accent text-white hover:bg-accent/80 hover:shadow-[0_0_20px_rgba(77,141,255,0.3)]",
+    primary: `
+      bg-yellow-500
+      hover:bg-yellow-600
+      text-white
 
-    outline: "border border-border text-primary hover:border-accent hover:text-accent bg-transparent",
+      dark:bg-blue-500
+      dark:hover:bg-blue-600
+
+      hover:shadow-lg
+    `,
+
+    outline: `
+      border
+
+      border-yellow-500
+      text-yellow-600
+
+      hover:bg-yellow-500
+      hover:text-white
+
+      dark:border-blue-500
+      dark:text-blue-400
+
+      dark:hover:bg-blue-500
+      dark:hover:text-white
+    `,
   };
 
-  const combinedStyles = `${baseStyles} ${variants[variant]} ${className}`;
+  const combinedStyles = `
+    ${baseStyles}
+    ${variants[variant]}
+    ${className}
+  `;
 
   if (href) {
     const isExternal = href.startsWith("http") || href.endsWith(".pdf");

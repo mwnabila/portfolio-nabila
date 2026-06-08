@@ -1,7 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200..1000;1,200..1000&family=Rubik:wght@300..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+/* ========================= */
+/* THEME */
+/* ========================= */
+
+:root {
+  --bg: #fffdf7;
+
+  --surface: rgba(255, 255, 255, 0.7);
+
+  --border: rgba(245, 158, 11, 0.15);
+
+  --primary: #111827;
+
+  --secondary: #4b5563;
+
+  --accent: #f59e0b;
+}
+
+.dark {
+  --bg: #050505;
+
+  --surface: #0e0e0e;
+
+  --border: #1a1a1a;
+
+  --primary: #e8e8e8;
+
+  --secondary: #888888;
+
+  --accent: #4d8dff;
+}
+
+/* ========================= */
+/* BASE */
+/* ========================= */
 
 @layer base {
   * {
@@ -15,31 +52,42 @@
   }
 
   body {
-    background-color: #050505;
-    color: #e8e8e8;
+    background: var(--bg);
+    color: var(--primary);
+
     font-family: "DM Sans", sans-serif;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    transition:
+      background 0.5s ease,
+      color 0.5s ease;
   }
 
-  /* Custom scrollbar */
+  /* Scrollbar */
+
   ::-webkit-scrollbar {
     width: 4px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #050505;
+    background: var(--surface);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #1a1a1a;
-    border-radius: 2px;
+    background: var(--border);
+    border-radius: 999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #4d8dff;
+    background: var(--accent);
   }
 }
+
+/* ========================= */
+/* TYPOGRAPHY */
+/* ========================= */
 
 @layer utilities {
   .font-display {
@@ -50,6 +98,10 @@
     font-family: "Nunito Sans", sans-serif;
   }
 }
+
+/* ========================= */
+/* AURORA */
+/* ========================= */
 
 @keyframes aurora {
   0% {

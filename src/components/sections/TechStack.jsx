@@ -20,10 +20,23 @@ const TechStack = () => {
                 delay: groupIndex * 0.15,
               }}
             >
-              {/* Category Label */}
-              <p className="font-body text-xs text-secondary tracking-[0.2em] uppercase mb-5">{group.category}</p>
+              {/* Category */}
+              <p
+                className="
+                  font-body
+                  text-xs
+                  tracking-[0.2em]
+                  uppercase
+                  mb-5
 
-              {/* Logo Grid */}
+                  text-yellow-600
+                  dark:text-blue-400
+                "
+              >
+                {group.category}
+              </p>
+
+              {/* Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {group.items.map((item, itemIndex) => (
                   <motion.div
@@ -37,24 +50,65 @@ const TechStack = () => {
                     }}
                     whileHover={{
                       scale: 1.05,
-                      borderColor: "#4D8DFF",
                     }}
                     className="
-                      bg-surface
-                      border border-border
+                      group
+
+                      bg-white
+                      dark:bg-[#0e0e0e]
+
+                      border
+                      border-gray-200
+                      dark:border-[#1a1a1a]
+
                       rounded-2xl
                       p-6
-                      flex flex-col
+
+                      flex
+                      flex-col
                       items-center
                       justify-center
                       gap-4
-                      hover:bg-accent/5
-                      transition-all duration-300
+
+                      hover:border-yellow-400
+                      dark:hover:border-blue-500
+
+                      hover:shadow-[0_10px_30px_rgba(251,191,36,0.15)]
+                      dark:hover:shadow-[0_10px_30px_rgba(77,141,255,0.15)]
+
+                      transition-all
+                      duration-300
                     "
                   >
-                    <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain" />
+                    <img
+                      src={item.icon}
+                      alt={item.name}
+                      className="
+                        w-12
+                        h-12
+                        object-contain
+                        transition-transform
+                        duration-300
+                        group-hover:scale-110
+                      "
+                    />
 
-                    <span className="font-body text-sm text-primary text-center">{item.name}</span>
+                    <span
+                      className="
+                        font-body
+                        text-sm
+                        text-primary
+                        text-center
+
+                        group-hover:text-yellow-600
+                        dark:group-hover:text-blue-400
+
+                        transition-colors
+                        duration-300
+                      "
+                    >
+                      {item.name}
+                    </span>
                   </motion.div>
                 ))}
               </div>
